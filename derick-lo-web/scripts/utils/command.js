@@ -4,7 +4,7 @@ const path = require("path");
 /**
  * @description exec command in dir
  * @param {string} command
- * @param {string} dir path relative to project
+ * @param {string} dir path relative to derick-lo-web
  */
 const runCommand = (command, dir = "./") => {
   if (!command) {

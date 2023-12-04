@@ -1,23 +1,20 @@
 const path = require("path");
 const fs = require("fs");
-const { exec } = require("child_process");
 const { copyDir, cleanDir } = require("./utils/file");
 const { runCommand } = require("./utils/command");
-
-// runCommand("git status", "../");
-// runCommand("git add .", "../");
+const { getVersion, generateVersion } = require("./utils/version");
 
 const distPath = path.resolve(__dirname, "../dist");
 const pubPath = path.resolve(__dirname, "../../");
 const versionPath = path.join(pubPath, "./version");
-const ARGS_REG = /^--rollback(=v_\d{13})?$/;
+const ARGS_REG = /^--rollback(=v_\d+.\d+.\d+)?$/;
 const CMD_REG = /^--[A-Za-z]+=?/;
 const EXCLUDE_REG = /^\..+|version|derick-lo-web/;
 
 const backup = () => {
   copyDir({
     fromPath: pubPath,
-    toPath: path.join(versionPath, `./v_${Date.now()}`),
+    toPath: path.join(versionPath, `./v_${getVersion()}`),
     exclude: (file) => EXCLUDE_REG.test(file),
   });
 };
@@ -34,20 +31,6 @@ const publish = () => {
   backup();
   clean();
   copyDist();
-};
-
-const gitPush = () => {
-  exec("git status", (error, stdout, stderr) => {
-    if (error) {
-      console.error(`执行 Git 命令时出错：${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`Git 命令输出错误：${stderr}`);
-      return;
-    }
-    console.log(`Git 命令输出：${stdout}`);
-  });
 };
 
 const rollback = (version) => {
@@ -90,12 +73,10 @@ const run = () => {
 
   if (rollbackName) {
     rollback(rollbackName);
-    gitPush();
     return;
   }
 
   publish();
-  gitPush;
 };
 
 run();
