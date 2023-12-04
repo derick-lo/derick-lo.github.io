@@ -8,7 +8,7 @@ module.exports = {
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.[name].[hash].js",
+    filename: "./js/bundle.[name].[hash].js",
   },
   resolve: {
     extensions: [".js", ".jsx"],

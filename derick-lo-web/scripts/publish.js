@@ -2,7 +2,11 @@ const path = require("path");
 const fs = require("fs");
 const { copyDir, cleanDir } = require("./utils/file");
 const { runCommand } = require("./utils/command");
-const { getVersion, generateVersion } = require("./utils/version");
+const {
+  getVersion,
+  generateVersion,
+  setVersionByType,
+} = require("./utils/version");
 
 const distPath = path.resolve(__dirname, "../dist");
 const pubPath = path.resolve(__dirname, "../../");
@@ -12,6 +16,7 @@ const CMD_REG = /^--[A-Za-z]+=?/;
 const EXCLUDE_REG = /^\..+|version|derick-lo-web/;
 
 const backup = () => {
+  setVersionByType("patch");
   copyDir({
     fromPath: pubPath,
     toPath: path.join(versionPath, `./v_${getVersion()}`),
