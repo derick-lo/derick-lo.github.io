@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 const packageJson = require(path.resolve(__dirname, "./package.json"));
 
 module.exports = {
@@ -16,11 +17,10 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: "pre",
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: ["babel-loader"],
       },
       {
         test: /\.less$/,
@@ -33,6 +33,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new ESLintPlugin({
+      files: ["src/**/*.js", "src/**/*.jsx"],
+      emitWarning: false,
+      emitError: true,
+    }),
     require("autoprefixer"),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -43,7 +48,6 @@ module.exports = {
   ],
   devServer: {
     static: "./dist",
-    port: 8080,
     hot: true,
     open: true,
   },
