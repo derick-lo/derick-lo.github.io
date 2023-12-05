@@ -55,7 +55,7 @@ const delDir = (filePath) => {
       const curPath = `${filePath}/${file}`;
 
       if (fs.lstatSync(curPath).isDirectory()) {
-        deleteDirectory(curPath);
+        delDir(curPath);
       } else {
         fs.unlinkSync(curPath);
       }
@@ -88,7 +88,7 @@ const cleanDir = (options) => {
     const fullPath = path.join(filePath, file);
 
     if (fs.statSync(fullPath).isDirectory()) {
-      deleteDirectory(fullPath);
+      delDir(fullPath);
     } else {
       fs.unlinkSync(fullPath);
     }
