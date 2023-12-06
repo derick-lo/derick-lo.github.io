@@ -32,5 +32,10 @@ module.exports = {
     'arrow-body-style': 'warn',
     quotes: ['error', 'single'],
     'no-console': ['warn', { allow: ['error'] }],
+    'no-duplicate-imports': ['error', { includeExports: true }],
+    'sort-imports': [
+      'error',
+      { ignoreCase: false, ignoreDeclarationSort: true },
+    ],
   },
 };
