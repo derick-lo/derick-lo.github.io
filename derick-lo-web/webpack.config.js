@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const ErudaPlugin = require('eruda-webpack-plugin');
 const packageJson = require(path.resolve(__dirname, './package.json'));
 
 module.exports = {
@@ -46,6 +47,7 @@ module.exports = {
       template: 'public/index.html',
       filename: 'index.html',
     }),
+    new ErudaPlugin(),
   ],
   devServer: {
     static: './dist',

@@ -46,6 +46,9 @@ devDependencies:
   css-loader:
     specifier: ^6.8.1
     version: 6.8.1(webpack@5.89.0)
+  eruda-webpack-plugin:
+    specifier: ^1.7.0
+    version: 1.7.0
   eslint:
     specifier: ^8.55.0
     version: 8.55.0
@@ -2753,6 +2756,62 @@ packages:
     resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
     dependencies:
       is-arrayish: 0.2.1
+    dev: true
+
+  /eruda-benchmark@2.0.1:
+    resolution: {integrity: sha512-HFcsReldgLyOd+1pyOjoqfHsyu2r2y7I1EWhyCkAdesEXsgPTEB7yF33ws6wWSoDWJAx9U+2A3OmS6JzlwCf+A==}
+    dev: true
+
+  /eruda-code@2.1.0:
+    resolution: {integrity: sha512-4RR6ct314ufDUG0b7nBYjCqaXThgcbiqnxblGJoN98SaWCSuSnMk3DEMUPXV522z0/BzkEcqfcRlayjO1EaQng==}
+    dev: true
+
+  /eruda-dom@2.0.0:
+    resolution: {integrity: sha512-aVsfmHow+LwInEBvn57WY5vQLNL9uJ8goV6mKTazhOWweI1h/XyqvNt1ojZjQvLM66kWDTgUNuugrP3k6KWDyw==}
+    dev: true
+
+  /eruda-features@2.0.0:
+    resolution: {integrity: sha512-giwAIV2tgc1+vuuid06juc+3+SrLFxXE1It7RGkfhctC9fEH/UhSiTcvyiKcAbZ6IRSEPyP+cQe/RTipoEcetQ==}
+    dev: true
+
+  /eruda-fps@2.0.0:
+    resolution: {integrity: sha512-7IkkU3VUs5+cSNpP9U6avrt9LThN/HsK79n9BE6lPvdxnEGqE9doJkcCZNE2AjIp0ZSgrNNXhPP8tTk7B5mdFw==}
+    dev: true
+
+  /eruda-geolocation@2.0.0:
+    resolution: {integrity: sha512-V8bF3rt4W4re9KnJLmVBdi2xNhF65S1rPiiyKmGv7IxXNvW70byuAbSqzmvrqv4gHpcU4vpjh2yiAKYfbbmwog==}
+    dev: true
+
+  /eruda-memory@2.0.0:
+    resolution: {integrity: sha512-8k4NgirY5eLmz6fNdyrQ2dSn1Mq+Rg7d799+ha/J7OnDoz7F3WtnElSu2dhgxBCpjv4BzmYGTIyc85sWmdmy9A==}
+    dev: true
+
+  /eruda-orientation@2.0.0:
+    resolution: {integrity: sha512-4WO2YJzLxQV4fzMQiEYtRUWF2ewwm5DjPMJfv1MzujZRwbohWdJmIxklBF9BGp6kgY2l6Dxto5NHwW64syR7XQ==}
+    dev: true
+
+  /eruda-timing@2.0.1:
+    resolution: {integrity: sha512-68Cir2pjgw4kkamabhZMrn00uuGt9uTltAflzGQhr6yeG2nB+dRXFEn2whJGvwinBA9GKMpselsH529LNWKJIw==}
+    dev: true
+
+  /eruda-webpack-plugin@1.7.0:
+    resolution: {integrity: sha512-p7P42H2pKqtEoK7L6E04y4zxxMBKUEq5K8NpghD0UV+n4e3VcqmHZaCO01EgMtWNEu/Oq/yXXbyDsNw6S9CrZg==}
+    dependencies:
+      camel-case: 4.1.2
+      eruda: 2.11.3
+      eruda-benchmark: 2.0.1
+      eruda-code: 2.1.0
+      eruda-dom: 2.0.0
+      eruda-features: 2.0.0
+      eruda-fps: 2.0.0
+      eruda-geolocation: 2.0.0
+      eruda-memory: 2.0.0
+      eruda-orientation: 2.0.0
+      eruda-timing: 2.0.1
+    dev: true
+
+  /eruda@2.11.3:
+    resolution: {integrity: sha512-e1EqrGJvN5PSXoFCSAmRqqDfziEL5bNSdPcJbRg5QVOHtcFMcG4n/6uTOfs2FTjAhg4X4GbxhHB+l7ITu/1zmQ==}
     dev: true
 
   /es-abstract@1.22.3:
