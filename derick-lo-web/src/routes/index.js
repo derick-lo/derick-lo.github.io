@@ -1,32 +1,30 @@
-import { createBrowserRouter, redirect } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '../components/layout/layout';
 import { Login } from '../pages/login/login';
 import { ErrorPage } from '../pages/error-page/error-page';
-import { isMobile } from '../utils/platfrom';
+import { Mobile } from '../components/layout/mobile';
+import { Home } from '../pages/home/Home';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     ErrorBoundary: ErrorPage,
-    loader: () => {
-      if (isMobile()) {
-        throw redirect('/mobile');
-      }
-    },
+    Component: Layout,
     children: [
       {
         index: true,
-        Component: Layout,
+        Component: Home,
       },
       {
-        path: '/login',
+        path: 'login',
         Component: Login,
       },
     ],
   },
   {
-    path: '/mobile',
+    path: 'mobile',
     ErrorBoundary: ErrorPage,
+    Component: Mobile,
     children: [
       {
         index: true,
